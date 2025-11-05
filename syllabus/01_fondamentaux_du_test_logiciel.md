@@ -80,7 +80,7 @@ Selon le contexte, ces rôles peuvent être assumés par différentes personnes 
 
 **Indépendance des tests** : Un certain degré d'indépendance augmente l'éfficacité pour trouver des défauts en raison de biais cognitifs différents de ceux de l'auteur du code. L'indépendance peut varier du test effectué par l'auteur lui-même, au test par des entités externes à l'organisation. Les **avantages** incluent une meilleure reconnaissance des défaillances et la remise en question des hypothèses. Les **inconvénients** potentiels sont le risque d'isolement des testeurs, les problèmes de communication et la perte du sentiment de responsabilité de qualité chez les développeurs.
 
-:white_check_mark:**Synthèse**
+## :white_check_mark: Synthèse
 - Tester = **Exposer des défauts**. Ce n'est pas démontrer qu'il n'y en a pas.
 - Le test est **nécessaire** pour réduire les risques, garantir la qualité du produit final et fournir de l'information pertinentes aux partie prenantes.
 - Les **7 principes** de test fixent le cadre de réflexion autour du test logiciel.
