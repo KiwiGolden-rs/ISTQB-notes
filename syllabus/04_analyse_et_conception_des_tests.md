@@ -74,7 +74,9 @@ Deux exemples, un "simple" et un "complexe" :
     - La technique à 3 valeurs est considérée comme **plus rigoureuse** que celle à 2 valeurs. Par exemple, elle peut détecter un défaut d'implémentation (comme une condition "si(x ≤ 10)..." incorrectement codée en "si (x=10)...") en utilisant la voisine interne (x=9), ce que la technique à 2 valeurs pourrait manquer.
     - Pour atteindre une couverture de **100%**, les cas de test doivent exercer toutes les valeurs limites identifiées ainsi que leurs voisines.
 
-$Couverture(\%) = (Valeurs\ limites\ exercées\ /\ Total\ valeurs \ limites \ identifiées)\ *\ 100$
+```math
+Couverture(\%) = (Valeurs\ limites\ exercées\ /\ Total\ valeurs \ limites \ identifiées)\ *\ 100
+```
 
 **Test par tables de décisions** :
 - **Concept** : Les tables de décision sont utilisées pour tester l'implémentation des éxigences du système qui spécifient la manière dont différentes **combinaisons de condition** aboutissent à des résultats variés. Elles constituent un moyen efficace d'enregistrer une logique complexe, en particulier les **règles de gestion** (ou règle métier).
@@ -83,7 +85,10 @@ $Couverture(\%) = (Valeurs\ limites\ exercées\ /\ Total\ valeurs \ limites \ id
   - **Tables à entrée étendue** : Où tout ou partie des conditions et des actions peuvent prendre des valeurs multiples (comme des plages de nombres, des partitions d'équivalence ou des valeurs discrètes).
 - La notation utilisée pour les conditions est "V" (vrai) ou "F" (faux). Le symbole "-" indique que la valeur de la condition n'est **pas pertinentes** pour le résultat, et "N/A" indique que la condition est **irréalisable** pour une règle donnée. Pour les actions, "X" signifie que l'action doit avoir lieu, et un blanc signifie qu'elle ne doit pas se produire.
 - Une table de décision complète couvre toutes les combinaisons de conditions, mais elle peut être simplifiée en retirant les colonnes correspondant à des combinaisons irréalisable. Elle peut aussi être minimisé en fusionnant les colonnes où certaines conditions n'affectent pas le résultat.
-- **Couverture** : Les **éléments de couverture** sont les **colonnes contenant les combinaisons de conditions réalisables**. Pour atteindre **100%**, les cas de test doivent exercer toutes ces colonnes réalisable.<br/>$Couverture(\%) = (Colonnes\ exercées\ /\ Total\ colonnes\ réalisables)\ *\ 100$
+- **Couverture** : Les **éléments de couverture** sont les **colonnes contenant les combinaisons de conditions réalisables**. Pour atteindre **100%**, les cas de test doivent exercer toutes ces colonnes réalisable.<br/>
+  ```math
+  Couverture(\%) = (Colonnes\ exercées\ /\ Total\ colonnes\ réalisables)\ *\ 100
+  ```
 - **Avantages et limites** : La force du test par tables de décisions est qu'il frounit une approche systématique pour identifier toutes les combinaisons de conditions, permettant de trouver des lacunes ou des contradictions dans les exigences qui pourraient être négligées autrement. Cependant, si les conditions sont nombreuses, le nombre de règles croît de manière exponentielle, ce qui peut rendre l'exercice de toute les règles très long. Dans de tels cas, l'utilisation d'une table de décision réduite ou d'une approche basée sur les risques est recommandées.
 - Exemple avec le formulaire de connexion :
 
@@ -113,7 +118,9 @@ $Couverture(\%) = (Valeurs\ limites\ exercées\ /\ Total\ valeurs \ limites \ id
     - Pour éviter le **masquage des défauts** (un défaut empêchant la détection d'un autre), il faut tester qu'une seul transition non valide dans un seul cas de test.
     - Cette couverture garantit la couverture de tous les états et des transitions valides. Elle est considérée comme une **exigence minimal** pour les logiciels critiques en termes de mission et de sécurité.
     - Quel que soit le critère, la couverture se calcul :
-  $Couverture(\%) = (Elements\ de\ couverture\ exercées\ /\ Total\ éléments\ de\ couverture)\ *\ 100$
+    ```math
+    Couverture(\%) = (Elements\ de\ couverture\ exercées\ /\ Total\ éléments\ de\ couverture)\ *\ 100
+    ```
 
 ## 4.3 Techniques de test boîte blanche
 
@@ -123,7 +130,10 @@ Cette section se concentre sur deux techniques de teste boîte blanche liées au
 
 **Test des instructions et couverture des instructions** : 
 - **Concept** : Dans le cadre du test des instructions, les éléments de couverture sont définis comme les **instructions exécutables** du code. L'objectif de cette technique est de concevoir des cas de test qui exercent ces instructions jusqu'à ce qu'un niveau de couverture acceptable soit atteint.
-- **Couverture** : Lorsqu'une **couverture des instructions de 100%** est atteinte, cela signifie que toutes les instructions exécutables du code ont été testées au moins une fois. Théoriquement, l'exécution d'une instruction contenant un défaut peut provoquer une défaillance, ce qui démontre la présence du défaut.<br/> $Couverture(\%) = (Instructions\ exercées\ /\ Total\ instructions\ exécutables)\ *\ 100$
+- **Couverture** : Lorsqu'une **couverture des instructions de 100%** est atteinte, cela signifie que toutes les instructions exécutables du code ont été testées au moins une fois. Théoriquement, l'exécution d'une instruction contenant un défaut peut provoquer une défaillance, ce qui démontre la présence du défaut.<br/> 
+  ```math
+  Couverture(\%) = (Instructions\ exercées\ /\ Total\ instructions\ exécutables)\ *\ 100
+  ```
   - **Limites de la couverture de instructions** : Cependant, l'exécution d'une instruction ne permet pas de détecter les défauts dans tous les cas.
     - Elle peut ne pas détecter les défauts qui dépendent des **données** (e.g., une division par zéro qui ne se produit que lorsque le dénominateur est égal à zéro).
     - Une couverture des instruction à 100% **ne garantit pas que toutes la logique de décision a été testée**, car toutes les branches du code n'auront pas nécessairement été exercées.
@@ -135,7 +145,9 @@ Cette section se concentre sur deux techniques de teste boîte blanche liées au
 - **Couverture** :
   - Atteindre une **couverture des branches de 100%** assure que toutes les branches du code sont exercées, qu'elles soient conditionnelles (e.g., résultat vrai ou faux d'une décision "if...then" ; résultat d'une instruction "switch/case" ; une décision de boucle) ou inconditionnelles.
   - La **couverture des branches englobe la couverture des instructions**. Cela signifie que si un ensemble de cas de test atteint 100% de couverture des branches, il atteint également 100% de couverture des instructions (mais l'inverse n'est pas vrai). Cependant, même à 100% cette technique peut ne pas détecter les défauts nécessitant l'exécution d'un chemin spécifique dans le code.
-$Couverture(\%) = (Branches\ exercées\ /\ Total\ branches)\ *\ 100$
+```math
+Couverture(\%) = (Branches\ exercées\ /\ Total\ branches)\ *\ 100
+```
 
 **La veleur des test boîte blanche** :
 - **Force fondamentale** : Une force fondamentale partagée par toutes les techniques de test boîte blanche est qu'elles prennent en compte l'**implémentation entière du logiciel** pendant le test. Cela permet de faciliter la détection des défauts, même lorsque la spécification du logiciel est **vague, obsolète ou incomplète**.
